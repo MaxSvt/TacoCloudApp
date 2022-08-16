@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.validation.Valid;
+
 @Slf4j
 @Controller
 @RequestMapping("/orders")
@@ -23,10 +25,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(TacoOrder order,
+    public String processOrder(@Valid TacoOrder order, Errors errors,
                                SessionStatus sessionStatus) {
-        log.info("Order submitted: {}", order);
-        sessionStatus.setComplete();
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
+        log.info("Order submitted: {}", order); sessionStatus.setComplete();
         return "redirect:/";
     }
 }
