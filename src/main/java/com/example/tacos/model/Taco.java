@@ -2,6 +2,7 @@
 // tag::allButValidation[]
 package com.example.tacos.model;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 public class Taco {
 
+    @Id
     private long id;
     private Date createdAt = new Date();
 
