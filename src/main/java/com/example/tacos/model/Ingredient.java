@@ -1,23 +1,23 @@
 package com.example.tacos.model;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.domain.Persistable;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Ingredient implements Persistable<String> {
+@Entity
+public class Ingredient {
 
     @Id
     private final String id;
     private final String name;
     private final Type type;
-
-    @Override
-    public boolean isNew(){
-        return true;
-    }
 
     public enum Type{
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE

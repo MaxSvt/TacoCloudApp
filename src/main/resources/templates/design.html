@@ -1,7 +1,7 @@
 <!-- tag::allButValidation[] -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <title>Taco Cloud</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
@@ -29,6 +29,7 @@
 
 <div class="container">
 <!-- tag::formTag[] -->
+    <!--/*@thymesVar id="design" type="java.lang.String"*/-->
     <form method="POST" th:object="${design}">
         <!-- end::all[] -->
         <span class="validationError"
@@ -42,8 +43,10 @@
             <div class="ingredient-group" id="wraps">
                 <!-- tag::designateWrap[] -->
                 <h3>Designate your wrap:</h3>
+                <!--/*@thymesVar id="wrap" type="java.lang.String"*/-->
                 <div th:each="ingredient : ${wrap}">
                     <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                    <!--/*@thymesVar id="ingredient" type="java.lang.String"*/-->
                     <span th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
                 <!-- end::designateWrap[] -->
@@ -51,6 +54,7 @@
 
             <div class="ingredient-group" id="proteins">
                 <h3>Pick your protein:</h3>
+                <!--/*@thymesVar id="protein" type="java.lang.String"*/-->
                 <div th:each="ingredient : ${protein}">
                     <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
                     <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -59,6 +63,7 @@
 
             <div class="ingredient-group" id="cheeses">
                 <h3>Choose your cheese:</h3>
+                <!--/*@thymesVar id="cheese" type="java.lang.String"*/-->
                 <div th:each="ingredient : ${cheese}">
                     <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
                     <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -67,6 +72,7 @@
 
             <div class="ingredient-group" id="veggies">
                 <h3>Determine your veggies:</h3>
+                <!--/*@thymesVar id="veggies" type="java.lang.String"*/-->
                 <div th:each="ingredient : ${veggies}">
                     <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
                     <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -75,6 +81,7 @@
 
             <div class="ingredient-group" id="sauces">
                 <h3>Select your sauce:</h3>
+                <!--/*@thymesVar id="sauce" type="java.lang.String"*/-->
                 <div th:each="ingredient : ${sauce}">
                     <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
                     <span th:text="${ingredient.name}">INGREDIENT</span><br/>
